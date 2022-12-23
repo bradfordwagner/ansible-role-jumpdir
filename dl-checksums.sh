@@ -1,8 +1,9 @@
 #!/usr/bin/env sh
 set -e
 DIR=~/Downloads
-MIRROR=https://github.com/bradfordwagner/go-azure-blob-cli/releases/download
-APP=go-azure-blob-cli
+MIRROR=https://github.com/bradfordwagner/go-cli-jumpdir/releases/download
+APP=go-cli-jumpdir
+
 
 dl() {
     local ver=$1
@@ -10,7 +11,8 @@ dl() {
     local os=$3
     local arch=$4
     local platform="${os}_${arch}"
-    local file="${APP}_${ver}_${platform}.tar.gz"
+    # parse out based on matching arch/checksum - this is because version includeds v0.0.0 whilst the file is 0.0.0
+    local file=$(grep ${arch} ${lchecksums} | grep ${os} | awk '{print $2}')
     local url=$MIRROR/$ver/$file
     printf "    # %s\n" $url
     printf "    %s: sha256:%s\n" $platform $(grep $file $lchecksums | awk '{print $1}')
@@ -36,5 +38,5 @@ dl_ver() {
     dl $ver $lchecksums Windows x86_64
 }
 
-dl_ver ${1:-1.1.0}
+dl_ver ${1:-v0.2.0}
 
