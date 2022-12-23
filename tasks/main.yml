@@ -1,15 +1,5 @@
 ---
 # tasks file for jumpdir
-- name: resolve platform specific vars
-  include_vars: '{{ item }}'
-  with_first_found:
-    - files:
-        - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
-        - '{{ ansible_distribution }}.yml'
-        - '{{ ansible_os_family }}.yml'
-      skip: true
-      paths:
-        - '{{ role_path }}/vars'
 - name: check for {{ jd_install_dir }}
   become: yes
   stat:
@@ -41,6 +31,13 @@
         src: '{{ jd_tmp_tgz }}'
         dest: '{{ jd_install_dir }}'
         creates: '{{ jd_installed_exe }}'
+    - name: clone source {{ jd_repo }} into {{ jd_install_dir }}/source
+      become: yes
+      become_user: root
+      git:
+        repo: "{{ jd_repo }}"
+        version: "{{ jd_ver }}"
+        dest: "{{ jd_install_dir }}/source"
   always:
     - name: rm {{ jd_tmp_tgz }}
       become: yes

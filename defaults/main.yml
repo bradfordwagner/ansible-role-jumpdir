@@ -2,6 +2,7 @@
 jd_ver: v0.2.0
 jd_parent_install_dir: /usr/local
 jd_mirror: https://github.com/bradfordwagner/go-cli-jumpdir/releases/download
+jd_repo: https://github.com/bradfordwagner/go-cli-jumpdir.git
 
 jd_ansible_arch_to_download_arch:
   x86_64: x86_64
