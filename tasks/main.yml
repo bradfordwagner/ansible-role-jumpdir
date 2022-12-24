@@ -56,6 +56,7 @@
   ansible.builtin.blockinfile:
     marker: "# {mark} ANSIBLE MANAGED BLOCK jumpdir"
     path: '{{ ansible_env.HOME }}/{{ item }}'
+    create: true
     block: |
       source {{ jd_install_dir }}/source/hack/alias.sh
   loop:
