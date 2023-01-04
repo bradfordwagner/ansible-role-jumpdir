@@ -12,6 +12,7 @@
       become: yes
       become_user: root
       get_url:
+        validate_certs: '{{ jd_validate_certs }}'
         url: '{{ jd_url }}'
         dest: '{{ jd_tmp_tgz }}'
         checksum: '{{ jd_checksum }}'

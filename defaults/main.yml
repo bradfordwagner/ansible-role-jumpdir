@@ -9,6 +9,8 @@ jd_ansible_arch_to_download_arch:
   aarch64: arm64
   arm64: arm64
 
+jd_validate_certs: true
+
 jd_checksums:
   # https://github.com/bradfordwagner/go-cli-jumpdir/releases/download/v0.2.0/checksums.txt
   v0.2.0:
