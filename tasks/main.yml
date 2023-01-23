@@ -57,7 +57,9 @@
   become: yes
   become_user: '{{ jd_user }}'
   block:
-    - ansible.builtin.blockinfile:
+    - gather_facts:
+    - name: completions {{ ansible_env.HOME }}
+      ansible.builtin.blockinfile:
         marker: "# {mark} ANSIBLE MANAGED BLOCK jumpdir"
         path: '{{ ansible_env.HOME }}/{{ item }}'
         create: true
