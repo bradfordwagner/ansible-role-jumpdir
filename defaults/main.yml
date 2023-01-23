@@ -11,6 +11,8 @@ jd_ansible_arch_to_download_arch:
 
 jd_validate_certs: true
 
+jd_user: '{{ ansible_user_id }}'
+
 jd_checksums:
   # https://github.com/bradfordwagner/go-cli-jumpdir/releases/download/v0.2.0/checksums.txt
   v0.2.0:
