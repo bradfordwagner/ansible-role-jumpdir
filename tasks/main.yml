@@ -53,19 +53,14 @@
     src: '{{ jd_installed_exe }}'
     dest: '{{ jd_installed_link }}'
     state: link
-- name: add aliases to profile
-  become: yes
-  become_user: '{{ jd_user }}'
-  block:
-    - gather_facts:
-    - name: completions {{ ansible_env.HOME }}
-      ansible.builtin.blockinfile:
-        marker: "# {mark} ANSIBLE MANAGED BLOCK jumpdir"
-        path: '{{ ansible_env.HOME }}/{{ item }}'
-        create: true
-        block: |
-          source {{ jd_install_dir }}/source/hack/alias.sh
-      loop:
-        - .profile
-        - .zprofile
+- name: completions {{ ansible_env.HOME }}
+  ansible.builtin.blockinfile:
+    marker: "# {mark} ANSIBLE MANAGED BLOCK jumpdir"
+    path: '{{ ansible_env.HOME }}/{{ item }}'
+    create: true
+    block: |
+      source {{ jd_install_dir }}/source/hack/alias.sh
+  loop:
+    - .profile
+    - .zprofile
 
