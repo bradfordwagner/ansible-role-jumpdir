@@ -2,7 +2,6 @@
 - hosts: all
   roles:
     - role: '{{ playbook_dir }}'
-      jd_ver: v0.2.0
   tasks:
     - command: /usr/local/bin/jumpdir
       register: output
