@@ -38,5 +38,5 @@ dl_ver() {
     dl $ver $lchecksums Windows x86_64
 }
 
-dl_ver ${1:-v0.4.0}
+dl_ver ${1:-v0.5.0}
 
