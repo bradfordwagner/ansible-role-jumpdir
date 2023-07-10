@@ -85,3 +85,15 @@ jd_checksums:
     Linux_x86_64: sha256:34fba87e1506b47f671bf379e914cf49ac8e496478010e4fa8f0094dab00b836
     # https://github.com/bradfordwagner/go-cli-jumpdir/releases/download/v0.5.1/go-cli-jumpdir_0.5.1_Windows_x86_64.tar.gz
     Windows_x86_64: sha256:9efeb552efbf83c6cb9c98c554f46724f65c7d33908292527c846b34d1dcb857
+  # https://github.com/bradfordwagner/go-cli-jumpdir/releases/download/v0.5.2/checksums.txt
+  v0.5.2:
+    # https://github.com/bradfordwagner/go-cli-jumpdir/releases/download/v0.5.2/go-cli-jumpdir_0.5.2_Darwin_arm64.tar.gz
+    Darwin_arm64: sha256:3e9a6f5e37b509f5cc84df5217ee80a69048aba2ba78f50541559c4904ca491e
+    # https://github.com/bradfordwagner/go-cli-jumpdir/releases/download/v0.5.2/go-cli-jumpdir_0.5.2_Darwin_x86_64.tar.gz
+    Darwin_x86_64: sha256:d5358ade6ec5229a4c74e65f2daed92b70e96d714b8e9f1c9b4acfc95055c8f3
+    # https://github.com/bradfordwagner/go-cli-jumpdir/releases/download/v0.5.2/go-cli-jumpdir_0.5.2_Linux_arm64.tar.gz
+    Linux_arm64: sha256:54f27ecae5a7265fbbdd967b2d161ee64ecd7ba991f253edd4f46b843ce74478
+    # https://github.com/bradfordwagner/go-cli-jumpdir/releases/download/v0.5.2/go-cli-jumpdir_0.5.2_Linux_x86_64.tar.gz
+    Linux_x86_64: sha256:172ba839c652aff177f619e0b4d580e6c9fd510f9c619c74231ee14dcd3d3a0b
+    # https://github.com/bradfordwagner/go-cli-jumpdir/releases/download/v0.5.2/go-cli-jumpdir_0.5.2_Windows_x86_64.tar.gz
+    Windows_x86_64: sha256:eab5e2535f33db612f558ebc745263e86c2002c423d4f6a3b7702e925759503a
