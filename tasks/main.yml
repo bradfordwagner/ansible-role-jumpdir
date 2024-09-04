@@ -61,6 +61,5 @@
     block: |
       source {{ jd_install_dir }}/source/hack/alias.sh
   loop:
-    - .profile
-    - .zprofile
+    - .zshenv
 
