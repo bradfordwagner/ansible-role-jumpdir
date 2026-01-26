@@ -1,65 +1,29 @@
 ---
 # tasks file for jumpdir
-- name: check for {{ jd_install_dir }}
-  become: yes
-  stat:
-    path: '{{ jd_install_dir }}'
-  changed_when: False
-  register: jd_binary
-- when: not jd_binary.stat.exists
-  block:
-    - name: download {{ jd_url }}
-      become: yes
-      become_user: root
-      get_url:
-        validate_certs: '{{ jd_validate_certs }}'
-        url: '{{ jd_url }}'
-        dest: '{{ jd_tmp_tgz }}'
-        checksum: '{{ jd_checksum }}'
-        mode: 0644
-    - name: mkdir {{ jd_install_dir }}
-      become: yes
-      become_user: root
-      file:
-        path: '{{ jd_install_dir }}'
-        state: directory
-        mode: 0755
-    - name: unarchive {{ jd_tmp_tgz }}
-      become: yes
-      become_user: root
-      unarchive:
-        remote_src: yes
-        src: '{{ jd_tmp_tgz }}'
-        dest: '{{ jd_install_dir }}'
-        creates: '{{ jd_installed_exe }}'
-    - name: clone source {{ jd_repo }} into {{ jd_install_dir }}/source
-      become: yes
-      become_user: root
-      git:
-        repo: "{{ jd_repo }}"
-        version: "{{ jd_ver }}"
-        dest: "{{ jd_install_dir }}/source"
-  always:
-    - name: rm {{ jd_tmp_tgz }}
-      become: yes
-      become_user: root
-      file:
-        path: '{{ jd_tmp_tgz }}'
-        state: absent
-- name: link {{ jd_installed_link }} to {{ jd_installed_exe }}
+- name: install jumpdir binary
+  include_role:
+    name: bradfordwagner.go-releaser-install
+  vars:
+    gri_installs:
+      - repo: bradfordwagner/go-cli-jumpdir
+        binary_name: jumpdir
+        tag: '{{ jd_ver }}'
+
+- name: clone source {{ jd_repo }} into {{ jd_source_dir }}
   become: yes
   become_user: root
-  file:
-    src: '{{ jd_installed_exe }}'
-    dest: '{{ jd_installed_link }}'
-    state: link
+  git:
+    repo: "{{ jd_repo }}"
+    version: "{{ jd_ver }}"
+    dest: "{{ jd_source_dir }}"
+
 - name: completions {{ ansible_env.HOME }}
   ansible.builtin.blockinfile:
     marker: "# {mark} ANSIBLE MANAGED BLOCK jumpdir"
     path: '{{ ansible_env.HOME }}/{{ item }}'
     create: true
     block: |
-      source {{ jd_install_dir }}/source/hack/alias.sh
+      source {{ jd_source_dir }}/hack/alias.sh
   loop:
     - .zshenv
 

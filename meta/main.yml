@@ -8,6 +8,5 @@ galaxy_info:
   galaxy_tags: [cli,jumpdir]
 
 dependencies:
-  - andrewrothstein.unarchive-deps
+  - bradfordwagner.go-releaser-install
   - andrewrothstein.git
-
