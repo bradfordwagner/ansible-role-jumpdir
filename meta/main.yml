@@ -8,6 +8,6 @@ galaxy_info:
   galaxy_tags: [cli,jumpdir]
 
 dependencies:
-  - andrewrothstein.unarchive-deps
+  - bradfordwagner.ansible.role.go.releaser.install
   - andrewrothstein.git
 
