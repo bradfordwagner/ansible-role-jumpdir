@@ -6,6 +6,7 @@
   vars:
     gri_installs:
       - repo: bradfordwagner/go-cli-jumpdir
+        binary_name: jumpdir
         tag: '{{ jd_ver }}'
 
 - name: clone source {{ jd_repo }} into {{ jd_source_dir }}
