@@ -1,5 +1,5 @@
 ---
 - role: bradfordwagner.go-releaser-install
-  version: v1.0.0
+  version: 1.5.0
 - role: andrewrothstein.git
   version: v3.2.2

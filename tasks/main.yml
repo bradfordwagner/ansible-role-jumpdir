@@ -2,13 +2,11 @@
 # tasks file for jumpdir
 - name: install jumpdir binary
   include_role:
-    name: bradfordwagner.ansible.role.go.releaser.install
+    name: bradfordwagner.go-releaser-install
   vars:
     gri_installs:
       - repo: bradfordwagner/go-cli-jumpdir
-        binary_name: go-cli-jumpdir
         tag: '{{ jd_ver }}'
-        separator: '_'
 
 - name: clone source {{ jd_repo }} into {{ jd_source_dir }}
   become: yes
