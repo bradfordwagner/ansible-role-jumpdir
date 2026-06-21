@@ -4,14 +4,14 @@
   include_role:
     name: bradfordwagner.go-releaser-install
   vars:
+    gri_parent_install_dir: '{{ ansible_env.HOME }}/.local'
+    gri_link_dir: '{{ ansible_env.HOME }}/.local/bin'
     gri_installs:
       - repo: bradfordwagner/go-cli-jumpdir
         binary_name: jumpdir
         tag: '{{ jd_ver }}'
 
 - name: clone source {{ jd_repo }} into {{ jd_source_dir }}
-  become: yes
-  become_user: root
   git:
     repo: "{{ jd_repo }}"
     version: "{{ jd_ver }}"
