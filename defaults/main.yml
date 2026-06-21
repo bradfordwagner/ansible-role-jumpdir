@@ -2,3 +2,5 @@
 jd_ver: v0.10.0
 jd_repo: https://github.com/bradfordwagner/go-cli-jumpdir.git
 jd_source_dir: '{{ ansible_env.HOME }}/.local/share/jumpdir-source'
+jd_gri_parent_install_dir: '{{ ansible_env.HOME }}/.local'
+jd_gri_link_dir: '{{ ansible_env.HOME }}/.local/bin'

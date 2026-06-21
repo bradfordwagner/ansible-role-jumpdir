@@ -1,11 +1,17 @@
 ---
 # tasks file for jumpdir
+- name: ensure {{ jd_gri_link_dir }} exists
+  file:
+    path: '{{ jd_gri_link_dir }}'
+    state: directory
+    mode: '755'
+
 - name: install jumpdir binary
   include_role:
     name: bradfordwagner.go-releaser-install
   vars:
-    gri_parent_install_dir: '{{ ansible_env.HOME }}/.local'
-    gri_link_dir: '{{ ansible_env.HOME }}/.local/bin'
+    gri_parent_install_dir: '{{ jd_gri_parent_install_dir }}'
+    gri_link_dir: '{{ jd_gri_link_dir }}'
     gri_installs:
       - repo: bradfordwagner/go-cli-jumpdir
         binary_name: jumpdir
