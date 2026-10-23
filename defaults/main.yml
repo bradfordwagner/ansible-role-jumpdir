@@ -1,4 +1,5 @@
 ---
+# renovate: datasource=github-releases depName=bradfordwagner/go-cli-jumpdir
 jd_ver: v0.10.1
 jd_repo: https://github.com/bradfordwagner/go-cli-jumpdir.git
 jd_source_dir: '{{ ansible_env.HOME }}/.local/share/jumpdir-source'
