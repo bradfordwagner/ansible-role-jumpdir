@@ -23,10 +23,10 @@
     version: "{{ jd_ver }}"
     dest: "{{ jd_source_dir }}"
 
-- name: completions {{ ansible_env.HOME }}
+- name: completions {{ ansible_facts.env.HOME }}
   ansible.builtin.blockinfile:
     marker: "# {mark} ANSIBLE MANAGED BLOCK jumpdir"
-    path: '{{ ansible_env.HOME }}/{{ item }}'
+    path: '{{ ansible_facts.env.HOME }}/{{ item }}'
     create: true
     block: |
       source {{ jd_source_dir }}/hack/alias.sh
